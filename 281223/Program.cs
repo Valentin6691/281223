@@ -51,31 +51,37 @@
 // его элементы, начиная с конца. Использовать 
 // рекурсию, не использовать циклы.
 
-int[] array = { 1, 2, 3, 4, 5 };
-
-Console.WriteLine("Элементы массива в прямом порядке: ");
-PrintArray(array, 0);
-
-void PrintArray(int[] array, int i)
+internal class Program
+{
+    private static void Main(string[] args)
     {
-        if (i == array.Length)
-        {
-            return;
-        }
-        Console.Write(array[i] + " ");
-        PrintArray(array, i + 1);
-    }
-Console.WriteLine();
+        int[] array = { 1, 2, 3, 4, 5 };
 
-Console.WriteLine("Элементы массива в обратном порядке: ");
-PrintArrayReverse(array, array.Length - 1);
+        Console.WriteLine("Элементы массива в прямом порядке: ");
+        PrintArray(array, 0);
 
-void PrintArrayReverse(int[] array, int i)
-    {
-        if (i < 0)
+        void PrintArray(int[] array, int i)
         {
-            return;
+            if (i == array.Length)
+            {
+                return;
+            }
+            Console.Write(array[i] + " ");
+            PrintArray(array, i + 1);
         }
-        Console.Write(array[i] + " ");
-        PrintArrayReverse(array, i - 1);
+        Console.WriteLine();
+
+        Console.WriteLine("Элементы массива в обратном порядке: ");
+        PrintArrayReverse(array, array.Length - 1);
+
+        void PrintArrayReverse(int[] array, int i)
+        {
+            if (i < 0)
+            {
+                return;
+            }
+            Console.Write(array[i] + " ");
+            PrintArrayReverse(array, i - 1);
+        }
     }
+}
